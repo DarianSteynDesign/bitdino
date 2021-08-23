@@ -35,6 +35,16 @@ constructor(elementRef: ElementRef) {
   this.downloadLink = elementRef.nativeElement.querySelector('#downloadLink');
 }
 
+public generateCombo(){
+  let weighting = {1:0.1, 2:0.2, 3:0.3, 4:0.4, 5:0.5, 6:0.6, 7:0.8, 8:0.8, 9:0.9};
+  //let weighting = {1:0.1, 2:0.1, 3:0.8, 4:0.8};
+  this.cominationArray = [];
+  
+  for(var index = 0; index < 500; index++){
+    this.calculateWeight(weighting);
+  }
+}
+
 public calculateWeight(spec: any) {
   var i, j, table=[];
   
@@ -49,7 +59,7 @@ public calculateWeight(spec: any) {
   } else {
     this.cominationArray.push(this.combinedResult);
     this.resultAmount++;
-    if(this.resultAmount == 100){
+    if(this.resultAmount == 50){
       this.splitCombination(this.cominationArray);
     }
     this.combinedResult = '';
@@ -59,16 +69,6 @@ public calculateWeight(spec: any) {
 public buildValue(value: any){
   this.combinedResult += value;
 }   
-
-public generateCombo(){
-  let weighting = {1:0.1, 2:0.2, 3:0.3, 4:0.4, 5:0.5, 6:0.6, 7:0.8, 8:0.8, 9:0.9};
-  //let weighting = {1:0.1, 2:0.1, 3:0.8, 4:0.8};
-  this.cominationArray = [];
-  
-  for(var index = 0; index < 500; index++){
-    this.calculateWeight(weighting);
-  }
-}
 
 public splitCombination(comboArray: Array<string>) {
   let splitCombinations: Array<string> = [];
@@ -86,32 +86,49 @@ public valueToNumber(arrayOfValues: any) {
       index++;
       valueArray.push(parseInt(element));
       
-      if((index % 4) === 0){
+      if((index % 4) === 0 && index === 4){
         //this.numberCombinations.push(valueArray);
         valueArray = [];
       }
     });
   });
   //this.numberCombinations.unshift([1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8], [9, 9, 9, 9]);
-  this.numberCombinations.unshift([1, 1, 1, 1], [2, 2, 2, 2]);
+  this.numberCombinations.unshift([1, 1, 1, 1], [5, 5, 5, 5]);
   console.log(this.numberCombinations);
 }
 
 public downloadImage(){
+  let assetList = document.querySelectorAll('.card');
+  let numberCombo = '';
 
-  html2canvas(this.screen.nativeElement).then((canvas:any) => {
-        let ctx = canvas.getContext('2d');
-
-        ctx.webkitImageSmoothingEnabled = true;
-        ctx.mozImageSmoothingEnabled = true;
-        ctx.imageSmoothingEnabled = true;
-        
-        this.canvas.nativeElement.src = canvas.toDataURL();
-        this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-        this.downloadLink.nativeElement.download = 'marble-diagram.png';
-        this.downloadLink.nativeElement.click();
+  assetList.forEach((asset: any, index: number) => {
+    numberCombo = this.getNumberCombo(index);
+    if(index < 100){
+      this.screenGrab(asset, numberCombo);
+    } else {
+      console.log('DONE DONE DONE DONE DONE DONE DONE DONE DONE!!!!!!!!!!!!!!!!!!!!!!!!!');
+    }
   });
-  
-  }
+}
+
+public getNumberCombo(index: number): string {
+  return this.numberCombinations[index].join("-");
+}
+
+public screenGrab(htmlElement: HTMLElement, numberCombo: string) {
+  html2canvas(htmlElement, {removeContainer: true}).then((canvas:any) => {
+    let ctx = canvas.getContext('2d');
+
+    ctx.webkitImageSmoothingEnabled = true;
+    ctx.mozImageSmoothingEnabled = true;
+    ctx.imageSmoothingEnabled = true;
+    
+    this.canvas.nativeElement.src = canvas.toDataURL();
+    this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
+    this.downloadLink.nativeElement.download = 'dino' + numberCombo + '.png';
+    //this.downloadLink.nativeElement.click();
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+  });
+}
 
 }

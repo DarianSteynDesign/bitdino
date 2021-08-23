@@ -2,15 +2,18 @@
     display: flex;
     flex-wrap: wrap;
     width: 200vh;
+
+    #download {
+        position: absolute;
+        bottom: -40px;
+    }
     
     .cryptic-container {
         display: flex;
         position: relative;
-        width: 200px;
-        height: 250px;
+        width: 330px;
+        height: 450px;
         margin: 15px;
-        border-radius: 5px;
-        // background-color: #eecb00;
         box-shadow: 0px 0px 7px #cccccc;
         
         .assets-container{
@@ -19,12 +22,13 @@
             margin: auto;
 
             .asset-container {
-                width: 98%;
-                height: 85px;
+                width: 100%;
+                height: 75px;
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                padding: 10px 0 0px 0;
+                padding: 20px 0 0px 0;
+                background: white;
 
                 .asset-blurb {
                     text-align: center;
@@ -34,18 +38,16 @@
                     font-style: italic;
                     margin: 0;
                     text-align: right;
-                    padding-right: 10px;
-                    color: white;
-                    text-shadow: 0px 1px 3px #171717;
+                    padding-right: 30px;
+                    color: black;
                 }
     
                 .asset-heading {
-                    color: white;
-                    text-shadow: 0px 1px 3px #171717;
+                    color: black;
 
                     .asset-text {
                         text-align: right;
-                        padding-right: 10px;
+                        padding-right: 30px;
                         margin: 10px 0;
                         font-size: 0.6rem;
                         font-family: 'Archivo Narrow', sans-serif;
@@ -57,7 +59,7 @@
 
             .item-container {
                 .cryptic-image{
-                    width: 80px;
+                    width: 190px;
                     image-rendering: pixelated;
                     top: 26%;
                     left: 0;
@@ -68,6 +70,11 @@
                     &.asset {
                         position: absolute;
                     }
+
+                    &.ur-stars {
+                        width: 65px;
+                        opacity: 0.6;
+                    }
                 }
 
                 .item-bg {
@@ -76,11 +83,9 @@
                     right: 0;
                     bottom: 0;
                     top: 0;
-                    background: #eecb00;
-                    width: 95%;
-                    height: 95%;
+                    background: #e8cd30;
+                    padding: 20px;
                     margin: auto;
-                    border-radius: 5px;
                     overflow: hidden;
 
                     &.green {
@@ -94,19 +99,6 @@
                                 display: none;
                             }
                         }
-
-                        .stripe-container {
-                            .stripe {
-                                opacity: 0.1;
-                            }
-
-                            .stripe:nth-child(1) {
-                                display: none;
-                            }
-                            .stripe:nth-child(3) {
-                                display: none;
-                            }
-                        }
                     }
             
                     &.purple {
@@ -117,24 +109,24 @@
                                 display: none;
                             }
                         }
-
-                        .stripe-container {
-                            .stripe {
-                                opacity: 0.1;
-                            }
-
-                            .stripe:nth-child(3) {
-                                display: none;
-                            }
-                        }
                     }
 
                     .star-container {
                         display: flex;
                         position: absolute;
-                        top: 10px;
-                        width: 100%;
                         z-index: 2;
+                        width: 100%;
+                        left: 0px;
+
+                        .star-img-container {
+                            margin-right: 10px;
+
+                            .star {
+                                width: 15px;
+                                margin: 0px 5px;
+                                image-rendering: -webkit-optimize-contrast;
+                            }
+                        }
 
                         p {
                             margin: 0;
@@ -146,10 +138,12 @@
                             font-size: 0.8rem;
                             font-weight: 500;
                             font-style: italic;
+                            margin-left: 20px;
                         }
 
                         .stars{
                             margin-left: auto;
+                            margin-right: 20px;
 
                             .star {
                                 width: 10px;
@@ -159,38 +153,6 @@
                             }
                         }
                         
-                    }
-
-                    .stripe-container {
-                        position: relative;
-                        width: 100%;
-                        height: 100%;
-
-                        .stripe {
-                            position: absolute;
-                            width: 260px;
-                            height: 30px;
-                            background: white;
-                            display: block;
-                            transform: rotate(-25deg);
-                            margin: auto;
-                            opacity: 0.2;
-
-                            &:nth-child(1){
-                                top: 70px;
-                                left: -30px;
-                            }
-
-                            &:nth-child(2) {
-                                top: 113px;
-                                left: -30px;
-                            }
-
-                            &:nth-child(3) {
-                                top: 155px;
-                                left: -30px;
-                            }
-                        }
                     }
                 }
             }

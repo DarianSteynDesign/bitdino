@@ -1,8 +1,10 @@
 <button id="test" (click)="generateCombo()">Create CrytpoDragons</button>
 
 <div class="flex-wrap">
+  
   <div #screen id="table" class="cryptic-container" 
-      [ngClass]="{'asset' : i > 0 }" 
+      [attr.data-index]="i"
+      [ngClass]="{'card': i >= 0 }" 
       *ngFor="let combo of numberCombinations; let i = index;">
     <div class="assets-container">
       <div class="item-container">
@@ -14,57 +16,52 @@
               <p *ngIf="el > 3 && el <= 6">Rare</p>
               <p *ngIf="el > 6 && el <= 9">Commmon</p>
 
-              <div class="stars">
-                <svg class="star" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
-                  <g id="XMLID_263_">
-                    <path id="XMLID_264_" class="st0" d="M34.4,2.9l8.5,17.2l18.9,2.8c2.2,0.3,3,3,1.5,4.5L49.5,40.6l3.2,18.9c0.4,2.1-1.9,3.8-3.8,2.8
-                      L32,53.4l-16.9,8.9c-1.9,1-4.2-0.6-3.8-2.8l3.2-18.9L0.8,27.3c-1.6-1.5-0.7-4.2,1.5-4.5l18.9-2.8l8.5-17.2 C30.6,0.9,33.4,0.9,34.4,2.9z"/>
-                  </g>
-                </svg>
-                <svg class="star" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
-                  <g id="XMLID_263_">
-                    <path id="XMLID_264_" class="st0" d="M34.4,2.9l8.5,17.2l18.9,2.8c2.2,0.3,3,3,1.5,4.5L49.5,40.6l3.2,18.9c0.4,2.1-1.9,3.8-3.8,2.8
-                      L32,53.4l-16.9,8.9c-1.9,1-4.2-0.6-3.8-2.8l3.2-18.9L0.8,27.3c-1.6-1.5-0.7-4.2,1.5-4.5l18.9-2.8l8.5-17.2 C30.6,0.9,33.4,0.9,34.4,2.9z"/>
-                  </g>
-                </svg>
-                <svg class="star" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
-                  <g id="XMLID_263_">
-                    <path id="XMLID_264_" class="st0" d="M34.4,2.9l8.5,17.2l18.9,2.8c2.2,0.3,3,3,1.5,4.5L49.5,40.6l3.2,18.9c0.4,2.1-1.9,3.8-3.8,2.8
-                      L32,53.4l-16.9,8.9c-1.9,1-4.2-0.6-3.8-2.8l3.2-18.9L0.8,27.3c-1.6-1.5-0.7-4.2,1.5-4.5l18.9-2.8l8.5-17.2 C30.6,0.9,33.4,0.9,34.4,2.9z"/>
-                  </g>
-                </svg>
+              <div class="star-img-container" *ngIf="el < 4">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+              </div>
+
+              <div class="star-img-container" *ngIf="el > 3 && el <= 6">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+              </div>
+
+              <div class="star-img-container" *ngIf="el > 6 && el <= 9">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
               </div>
             </div>
-
-            <div class="stripe-container">
-              <span class="stripe"></span>
-              <span class="stripe"></span>
-              <span class="stripe"></span>
-            </div>
+            <img class="cryptic-image ur-stars" *ngIf="el <= 3" src='{{ "assets/images/UltraRareStars.png" }}' />
           </div>
 
-          <img *ngIf="j === 0" class="cryptic-image" src='{{ "assets/images/body" + el + ".png" }}' />
+          <img *ngIf="j === 0" class="cryptic-image" src='{{ "assets/images/Body" + el + ".png" }}' />
+          <img *ngIf="j === 0" class="cryptic-image" src='{{ "assets/images/BodyOutline1.png" }}' />
           <!-- <img *ngIf="j === 1" class="cryptic-image asset" src='{{ "assets/images/belly.png" }}' /> -->
-          <img *ngIf="j === 2" class="cryptic-image asset" src='{{ "assets/images/faceAcc" + el + ".png" }}' />
+          <img *ngIf="j === 2" class="cryptic-image asset face" src='{{ "assets/images/FaceAcc" + el + ".png" }}' />
           <!-- <img *ngIf="j === 3" class="cryptic-image asset" src='{{ "assets/images/biome" + el + ".png" }}' /> -->
 
           <ng-container *ngIf="el >= 1 && el <= 3">
-            <img *ngIf="j === 1" class="cryptic-image asset" src='{{ "assets/images/back1.png" }}' />
-            <img *ngIf="j === 2" class="cryptic-image asset" src='{{ "assets/images/highlights1.png" }}' />
-            <img *ngIf="j === 3" class="cryptic-image asset" src='{{ "assets/images/tail1.png" }}' />
+            <img *ngIf="j === 1" class="cryptic-image asset back" src='{{ "assets/images/Back" + el + ".png" }}' />
+            <img *ngIf="j === 2" class="cryptic-image asset highlights" src='{{ "assets/images/Highlights" + el + ".png" }}' />
+            <img *ngIf="j === 3" class="cryptic-image asset tail" src='{{ "assets/images/Tail" + el + ".png" }}' />
           </ng-container>
 
           <ng-container *ngIf="el > 3 && el <= 6">
-            <img *ngIf="j === 1" class="cryptic-image asset" src='{{ "assets/images/back2.png" }}' />
-            <img *ngIf="j === 2" class="cryptic-image asset" src='{{ "assets/images/highlights2.png" }}' />
-            <img *ngIf="j === 3" class="cryptic-image asset" src='{{ "assets/images/tail2.png" }}' />
+            <img *ngIf="j === 1" class="cryptic-image asset back" src='{{ "assets/images/Back" + el + ".png" }}' />
+            <img *ngIf="j === 2" class="cryptic-image asset highlights" src='{{ "assets/images/Highlights" + el + ".png" }}' />
+            <img *ngIf="j === 3" class="cryptic-image asset tail" src='{{ "assets/images/Tail" + el + ".png" }}' />
           </ng-container>
 
           <ng-container *ngIf="el > 6 && el <= 9">
-            <img *ngIf="j === 1" class="cryptic-image asset" src='{{ "assets/images/back3.png" }}' />
-            <img *ngIf="j === 2" class="cryptic-image asset" src='{{ "assets/images/highlights3.png" }}' />
-            <img *ngIf="j === 3" class="cryptic-image asset" src='{{ "assets/images/tail3.png" }}' />
+            <img *ngIf="j === 1" class="cryptic-image asset back" src='{{ "assets/images/Back" + el + ".png" }}' />
+            <img *ngIf="j === 2" class="cryptic-image asset highlights" src='{{ "assets/images/Highlights" + el + ".png" }}' />
+            <img *ngIf="j === 3" class="cryptic-image asset tail" src='{{ "assets/images/Tail" + el + ".png" }}' />
           </ng-container>
+
+          <img *ngIf="j === 3" class="cryptic-image asset tail" src='{{ "assets/images/Biome" + el + ".png" }}' />
     
           <div class="asset-container">
             <p class="asset-blurb" *ngIf="last">{{ dragonBlurbs[el - 1] }}</p>
@@ -77,9 +74,11 @@
       </div>
     </div>
   </div>
+
 </div>
 
 <div id="download">
   <img #canvas id="canvas">
   <a #downloadLink id="downloadLink" (click)="downloadImage()">Download</a>
+  <a href="assets/images/Biome.png" download="test.png">Test</a>
 </div>
