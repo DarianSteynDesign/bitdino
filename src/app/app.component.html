@@ -2,7 +2,7 @@
 
 <div class="flex-wrap">
   
-  <div #screen id="table" class="cryptic-container only-dino" 
+  <div #screen id="table" class="cryptic-container" 
       [attr.data-index]="i"
       [ngClass]="{'card': i >= 0 }" 
       *ngFor="let combo of numberCombinations; let i = index;">
