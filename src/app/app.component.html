@@ -2,7 +2,7 @@
 
 <div class="flex-wrap">
   
-  <div #screen id="table" class="cryptic-container" 
+  <div #screen id="table" class="cryptic-container only-dino" 
       [attr.data-index]="i"
       [ngClass]="{'card': i >= 0 }" 
       *ngFor="let combo of numberCombinations; let i = index;">
@@ -73,12 +73,18 @@
         </div>
       </div>
     </div>
+
+    <div id="download">
+      <img #canvasList class="canvasList">
+      <a #downloadLinks class=".downloadLinks" href="assets/images/Biome.png" download="test.png">Download Image</a>
+    </div>
   </div>
 
 </div>
 
-<div id="download">
+<button #downloadLink id="downloadLink" (click)="downloadImage()">Generate DL</button>
+<!-- <div id="download">
   <img #canvas id="canvas">
   <a #downloadLink id="downloadLink" (click)="downloadImage()">Download</a>
   <a href="assets/images/Biome.png" download="test.png">Test</a>
-</div>
+</div> -->

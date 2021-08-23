@@ -1,3 +1,9 @@
+#downloadLink {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+
 .flex-wrap{
     display: flex;
     flex-wrap: wrap;
@@ -13,8 +19,24 @@
         position: relative;
         width: 330px;
         height: 450px;
-        margin: 15px;
+        margin: 35px;
         box-shadow: 0px 0px 7px #cccccc;
+
+        &.only-dino {
+            box-shadow: none !important;
+
+            // .item-bg {
+            //     background: none !important;
+            // }
+
+            .star-container {
+                display: none !important;
+            }
+
+            .asset-container {
+                display: none !important;
+            }
+        }
         
         .assets-container{
             width: 60%;
