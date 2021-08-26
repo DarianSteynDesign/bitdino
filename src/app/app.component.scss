@@ -24,6 +24,16 @@
 
         &.only-dino {
             box-shadow: none !important;
+            width: 600px;
+            height: 600px;
+
+            .assets-container {
+                .item-container {
+                    .cryptic-image{
+                        width: 220px;
+                    }
+                }
+            }
 
             // .item-bg {
             //     background: none !important;
@@ -31,6 +41,22 @@
 
             .star-container {
                 display: none !important;
+            }
+
+            .asset-heading {
+                position: absolute;
+                bottom: 20px;
+                right: 30px;
+
+                .asset-text {
+                    color: white;
+                    text-align: right;
+                    margin: 10px 0;
+                    font-size: 1rem;
+                    font-family: 'Archivo Narrow', sans-serif;
+                    font-weight: bolder;
+                    font-style: italic;
+                }
             }
 
             .asset-container {
@@ -131,6 +157,14 @@
                                 display: none;
                             }
                         }
+                    }
+
+                    &.orange {
+                        background-color: #fc8f37;
+                    }
+
+                    &.red {
+                        background-color: #fc3737;
                     }
 
                     .star-container {

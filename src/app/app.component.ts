@@ -1,5 +1,6 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import html2canvas from 'html2canvas';
+import { AssetAssignmentEnum, BiomeEnum, BodyEnum, FaceAccEnum, HighlightsEnum, TailEnum } from './models/dino-attributes.enum';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,12 @@ export class AppComponent {
     "Scared of insects"
   ];
   public numberCombinations: Array<any> = [];
+  public assetAssignmentEnum = AssetAssignmentEnum;
+  public biomeEnum = BiomeEnum;
+  public bodyEnum = BodyEnum;
+  public faceAccEnum = FaceAccEnum;
+  public highlightsEnum = HighlightsEnum;
+  public tailEnum = TailEnum;
 
   @ViewChild('screen') screen: ElementRef;
   @ViewChild('canvas') canvas: ElementRef;
@@ -39,6 +46,9 @@ export class AppComponent {
 
     this.downloadLinks = elementRef.nativeElement.querySelectorAll('.downloadLinks');
     this.canvasList = elementRef.nativeElement.querySelectorAll('.canvasList');
+  }
+
+  ngOnInit() {
   }
 
   public generateCombo(){
@@ -65,7 +75,7 @@ export class AppComponent {
     } else {
       this.cominationArray.push(this.combinedResult);
       this.resultAmount++;
-      if(this.resultAmount == 20){
+      if(this.resultAmount == 50){
         this.splitCombination(this.cominationArray);
       }
       this.combinedResult = '';
@@ -93,13 +103,14 @@ export class AppComponent {
         valueArray.push(parseInt(element));
         
         if((index % 4) === 0 && index === 4){
-          this.numberCombinations.push(valueArray);
+          //this.numberCombinations.push(valueArray);
           valueArray = [];
         }
       });
     });
     //this.numberCombinations.unshift([1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8], [9, 9, 9, 9]);
-    //this.numberCombinations.unshift([1, 1, 1, 1], [5, 5, 5, 5]);
+    this.numberCombinations.unshift([1, 3, 1, 9], [2, 5, 5, 5]);
+    this.calculateDinoInfo(this.numberCombinations);
     console.log(this.numberCombinations);
   }
 
@@ -154,6 +165,54 @@ export class AppComponent {
         canvas.nativeElement.src = canvasData;
       }
     });
+  }
+
+  private calculateDinoInfo(comboList: Array<number>): void {
+    let dinoInfo: any = {
+      "Body" : "",
+      "FaceAcc": "",
+      "Highlights": "",
+      "Tail": "",
+      "Biome": "",
+    };
+    let dinoInfoArray: Array<any> = [];
+
+    comboList.forEach((combo: any) => {
+      combo.forEach((element: number, index: number) => {
+        console.log(index);
+        index === 0 ? dinoInfo.Body = this.bodyEnum[element] : '';
+        index === 2 ? dinoInfo.FaceAcc = this.faceAccEnum[element] : '';
+        index === 1 ? dinoInfo.Highlights = this.highlightsEnum[element] : '';
+        index === 2 ? dinoInfo.Tail = this.tailEnum[element] : '';
+        index === 3 ? dinoInfo.Biome = this.biomeEnum[element] : '';
+        
+        if(index === (combo.length - 1)){
+          dinoInfoArray.push(dinoInfo);
+          dinoInfo = {
+            "Body" : "",
+            "FaceAcc": "",
+            "Highlights": "",
+            "Tail": "",
+            "Biome": "",
+          };
+          console.log("Combo: ", combo, "DinoInfo: ", dinoInfoArray);
+        }
+      })
+    })
+
+    // dinoInfo = {
+    //   "Body:" : this.bodyEnum[element],
+    //   "FaceAcc": this.faceAccEnum[element],
+    //   "Highlights": this.highlightsEnum[element],
+    //   "Tail": this.tailEnum[element],
+    //   "Biome": this.biomeEnum[element]
+    // }
+
+    // <p *ngIf="j === 0" style="position: relative; z-index: 10; color: white;">Body: {{ bodyEnum[el] }}</p>
+    // <p *ngIf="j === 2" style="position: relative; z-index: 10; color: white;">Face acc: {{ faceAccEnum[el] }}</p>
+    // <p *ngIf="j === 1" style="position: relative; z-index: 10; color: white;">Highlights: {{ highlightsEnum[el] }}</p>
+    // <p *ngIf="j === 2" style="position: relative; z-index: 10; color: white;">Tail: {{ tailEnum[el] }}</p>
+    // <p *ngIf="j === 3" style="position: relative; z-index: 10; color: white;">Biome: {{ biomeEnum[el] }}</p>
   }
 
 }
