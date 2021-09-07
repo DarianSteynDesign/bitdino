@@ -196,24 +196,10 @@ export class NftImageGeneratorComponent implements OnInit {
             "Tail": "",
             "Biome": "",
           };
-          console.log("Combo: ", combo, "DinoInfo: ", dinoInfoArray);
+          //console.log("Combo: ", combo, "DinoInfo: ", dinoInfoArray);
         }
       })
     })
-
-    // dinoInfo = {
-    //   "Body:" : this.bodyEnum[element],
-    //   "FaceAcc": this.faceAccEnum[element],
-    //   "Highlights": this.highlightsEnum[element],
-    //   "Tail": this.tailEnum[element],
-    //   "Biome": this.biomeEnum[element]
-    // }
-
-    // <p *ngIf="j === 0" style="position: relative; z-index: 10; color: white;">Body: {{ bodyEnum[el] }}</p>
-    // <p *ngIf="j === 2" style="position: relative; z-index: 10; color: white;">Face acc: {{ faceAccEnum[el] }}</p>
-    // <p *ngIf="j === 1" style="position: relative; z-index: 10; color: white;">Highlights: {{ highlightsEnum[el] }}</p>
-    // <p *ngIf="j === 2" style="position: relative; z-index: 10; color: white;">Tail: {{ tailEnum[el] }}</p>
-    // <p *ngIf="j === 3" style="position: relative; z-index: 10; color: white;">Biome: {{ biomeEnum[el] }}</p>
   }
 
 }
