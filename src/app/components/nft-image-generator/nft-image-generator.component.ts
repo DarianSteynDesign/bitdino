@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import html2canvas from 'html2canvas';
+import { DownloadImageService } from 'src/app/services/download-image.service';
 import { NumberGeneratorService } from 'src/app/services/number-generator.service';
 import { AssetAssignmentEnum, BiomeEnum, BodyEnum, FaceAccEnum, HighlightsEnum, TailEnum } from '../../models/dino-attributes.enum';
 
@@ -15,17 +15,6 @@ export class NftImageGeneratorComponent implements OnInit {
   public combinedResult = '';
   public resultAmount = 0;
   public cominationArray: Array<string> =[];
-  public dragonBlurbs: Array<string> =[
-    "Likes to eat pie", 
-    "Bigger than most dragons", 
-    "Wacky as hell", 
-    "Big heart, bigger D", 
-    "Not too good with the ladies",
-    "Has a special sauce, can get lost in it",
-    "Always at your mom's house",
-    "Flexer",
-    "Scared of insects"
-  ];
   public numberCombinations: Array<any> = [];
   public assetAssignmentEnum = AssetAssignmentEnum;
   public biomeEnum = BiomeEnum;
@@ -41,7 +30,7 @@ export class NftImageGeneratorComponent implements OnInit {
   @ViewChildren('downloadLinks') downloadLinks: QueryList<any>;
   @ViewChildren('canvasList') canvasList: QueryList<any>;
 
-  constructor(elementRef: ElementRef, private numberGeneratorService: NumberGeneratorService) {
+  constructor(elementRef: ElementRef, private numberGeneratorService: NumberGeneratorService, private downloadImageService: DownloadImageService) {
     this.screen = elementRef.nativeElement.querySelector('#table');
     this.canvas = elementRef.nativeElement.querySelector('#canvas');
     this.downloadLink = elementRef.nativeElement.querySelector('#downloadLink');
@@ -53,60 +42,13 @@ export class NftImageGeneratorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public downloadImage(){
+    this.downloadImageService.downloadImage(this.screen, this.canvas, this.downloadLink, this.downloadLinks, this.canvasList);
+  }
+
   public generateCombo(){
     this.numberCombinations = this.numberGeneratorService.generateCombo();
     this.calculateDinoInfo(this.numberGeneratorService.generateCombo());
-  }
-
-  public downloadImage(){
-    let assetList = document.querySelectorAll('.card');
-    let numberCombo = '';
-
-    assetList.forEach((asset: any, index: number) => {
-      numberCombo = this.getNumberCombo(index);
-      if(index < 100){
-        this.screenGrab(asset, numberCombo, index);
-      } else {
-        console.log('DONE DONE DONE DONE DONE DONE DONE DONE DONE!!!!!!!!!!!!!!!!!!!!!!!!!');
-      }
-    });
-  }
-
-  public getNumberCombo(index: number): string {
-    return this.numberCombinations[index].join("-");
-  }
-
-  public screenGrab(htmlElement: HTMLElement, numberCombo: string, currentElementIndex: number) {
-    html2canvas(htmlElement, {removeContainer: true}).then((canvas:any) => {
-      let ctx = canvas.getContext('2d');
-
-      ctx.webkitImageSmoothingEnabled = true;
-      ctx.mozImageSmoothingEnabled = true;
-      ctx.imageSmoothingEnabled = true;
-
-      this.updateCanvas(currentElementIndex, canvas.toDataURL());
-      this.updateDownloadLinks(currentElementIndex, canvas.toDataURL('image/png'), 'dino' + numberCombo + '.png');
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-    });
-  }
-
-  private updateDownloadLinks(currentElementIndex: number, canvasDataUrl: any, downloadInfo: any) {
-    this.downloadLinks.toArray().forEach((link: any, index: number) => {
-      if(currentElementIndex == index){
-        link.nativeElement.href = canvasDataUrl;
-        link.nativeElement.download = downloadInfo;
-        link.nativeElement.click();
-      }
-    });
-  }
-
-  private updateCanvas(currentElementIndex: number, canvasData: any) {
-    this.canvasList.toArray().forEach((canvas: any, index: number) => {
-      if(currentElementIndex == index){
-        canvas.nativeElement.src = canvasData;
-      }
-    });
   }
 
   private calculateDinoInfo(comboList: Array<number>): void {
