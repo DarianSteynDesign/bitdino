@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DinoComponent } from './dino.component';
 
-import { NftImageGeneratorComponent } from './nft-image-generator.component';
-
-describe('NftImageGeneratorComponent', () => {
-  let component: NftImageGeneratorComponent;
-  let fixture: ComponentFixture<NftImageGeneratorComponent>;
+describe('DinoComponent', () => {
+  let component: DinoComponent;
+  let fixture: ComponentFixture<DinoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NftImageGeneratorComponent ]
+      declarations: [ DinoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NftImageGeneratorComponent);
+    fixture = TestBed.createComponent(DinoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { ElementRef, Injectable, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import html2canvas from 'html2canvas';
-import { NumberGeneratorService } from './number-generator.service';
+import { NumberGeneratorService } from '../number-generator/number-generator.service';
 
 @Injectable({
   providedIn: 'root'
