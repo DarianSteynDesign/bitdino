@@ -66,13 +66,13 @@ export class NumberGeneratorService {
         valueArray.push(parseInt(element));
         
         if((index % 4) === 0 && index === 4){
-          this.numberCombinations.push(valueArray);
+          //this.numberCombinations.push(valueArray);
           valueArray = [];
         }
       });
     });
     //this.numberCombinations.unshift([1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8], [9, 9, 9, 9]);
-    //this.numberCombinations.unshift([3, 2, 4, 3], [2, 5, 5, 5]);
+    this.numberCombinations.unshift([3, 2, 4, 3], [2, 5, 5, 5]);
     //this.calculateDinoInfo(this.numberCombinations);
     //console.log(this.numberCombinations);
   }
