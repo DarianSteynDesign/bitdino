@@ -103,15 +103,15 @@ export class AppComponent {
         valueArray.push(parseInt(element));
         
         if((index % 4) === 0 && index === 4){
-          //this.numberCombinations.push(valueArray);
+          this.numberCombinations.push(valueArray);
           valueArray = [];
         }
       });
     });
     //this.numberCombinations.unshift([1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8], [9, 9, 9, 9]);
-    this.numberCombinations.unshift([1, 3, 1, 9], [2, 5, 5, 5]);
+    //this.numberCombinations.unshift([3, 2, 4, 3], [2, 5, 5, 5]);
     this.calculateDinoInfo(this.numberCombinations);
-    console.log(this.numberCombinations);
+    //console.log(this.numberCombinations);
   }
 
   public downloadImage(){
@@ -150,7 +150,6 @@ export class AppComponent {
   private updateDownloadLinks(currentElementIndex: number, canvasDataUrl: any, downloadInfo: any) {
     this.downloadLinks.toArray().forEach((link: any, index: number) => {
       if(currentElementIndex == index){
-        console.log(link);
         link.nativeElement.href = canvasDataUrl;
         link.nativeElement.download = downloadInfo;
         link.nativeElement.click();
@@ -161,7 +160,6 @@ export class AppComponent {
   private updateCanvas(currentElementIndex: number, canvasData: any) {
     this.canvasList.toArray().forEach((canvas: any, index: number) => {
       if(currentElementIndex == index){
-        console.log(canvas);
         canvas.nativeElement.src = canvasData;
       }
     });
@@ -169,6 +167,7 @@ export class AppComponent {
 
   private calculateDinoInfo(comboList: Array<number>): void {
     let dinoInfo: any = {
+      "Combo": [],
       "Body" : "",
       "FaceAcc": "",
       "Highlights": "",
@@ -179,16 +178,17 @@ export class AppComponent {
 
     comboList.forEach((combo: any) => {
       combo.forEach((element: number, index: number) => {
-        console.log(index);
         index === 0 ? dinoInfo.Body = this.bodyEnum[element] : '';
         index === 2 ? dinoInfo.FaceAcc = this.faceAccEnum[element] : '';
         index === 1 ? dinoInfo.Highlights = this.highlightsEnum[element] : '';
         index === 2 ? dinoInfo.Tail = this.tailEnum[element] : '';
         index === 3 ? dinoInfo.Biome = this.biomeEnum[element] : '';
+        dinoInfo.Combo = combo;
         
         if(index === (combo.length - 1)){
           dinoInfoArray.push(dinoInfo);
           dinoInfo = {
+            "Combo": [],
             "Body" : "",
             "FaceAcc": "",
             "Highlights": "",
