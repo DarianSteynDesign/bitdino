@@ -4,11 +4,11 @@ import { NumberGeneratorService } from 'src/app/services/number-generator.servic
 import { AssetAssignmentEnum, BiomeEnum, BodyEnum, FaceAccEnum, HighlightsEnum, TailEnum } from '../../models/dino-attributes.enum';
 
 @Component({
-  selector: 'nft-image-generator',
-  templateUrl: './nft-image-generator.component.html',
-  styleUrls: ['./nft-image-generator.component.scss']
+  selector: 'dino-generator',
+  templateUrl: './dino.component.html',
+  styleUrls: ['./dino.component.scss']
 })
-export class NftImageGeneratorComponent implements OnInit {
+export class DinoComponent implements OnInit {
 
   title = 'cryptics';
 
