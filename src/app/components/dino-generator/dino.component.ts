@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { DownloadImageService } from 'src/app/services/download-image.service';
-import { NumberGeneratorService } from 'src/app/services/number-generator.service';
+import { DownloadImageService } from 'src/app/services/download-image/download-image.service';
+import { NumberGeneratorService } from 'src/app/services/number-generator/number-generator.service';
 import { AssetAssignmentEnum, BiomeEnum, BodyEnum, FaceAccEnum, HighlightsEnum, TailEnum } from '../../models/dino-attributes.enum';
 
 @Component({
