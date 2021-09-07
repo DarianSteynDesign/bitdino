@@ -1,0 +1,84 @@
+<button id="test" (click)="generateCombo()">Create CrytpoDragons</button>
+
+<div class="flex-wrap">
+  
+  <div #screen id="table" class="cryptic-container only-dino" 
+      [attr.data-index]="i"
+      [ngClass]="{'card': i >= 0 }" 
+      *ngFor="let combo of numberCombinations; let i = index;">
+    <div class="assets-container">
+      <div class="item-container">
+
+        <div [ngClass]="{'asset' : j > 0}" *ngFor="let el of combo; let j = index; let last = last;">
+          <!-- <p>Combo - {{ combo }}</p>
+          <p>Index of combo - {{ j }}</p>
+          <p>Combo value - {{ el }}</p> -->
+
+          <div class="item-bg" *ngIf="j < 1" [ngClass]="{'purple' : el > 1 && el <= 2, 'green' : el > 2 && el <= 4, 'orange' : el >= 5 && el <= 8, 'red' : el > 8 }">
+            <div class="star-container">
+              <p *ngIf="el < 4">Ultra Rare</p>
+              <p *ngIf="el > 3 && el <= 6">Rare</p>
+              <p *ngIf="el > 6 && el <= 9">Commmon</p>
+
+              <div class="star-img-container" *ngIf="el < 4">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+              </div>
+
+              <div class="star-img-container" *ngIf="el > 3 && el <= 6">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+              </div>
+
+              <div class="star-img-container" *ngIf="el > 6 && el <= 9">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+                <img class="star" src="assets/images/star.png">
+              </div>
+            </div>
+            <img class="cryptic-image ur-stars" *ngIf="el <= 1" src='{{ "assets/images/UltraRareStars.png" }}' />
+          </div>
+
+          <img *ngIf="j === 0" class="cryptic-image" src='{{ "assets/images/Body" + el + ".png" }}' />
+          <img *ngIf="j === 0" class="cryptic-image" src='{{ "assets/images/BodyOutline1.png" }}' />
+          <img *ngIf="j === 2" class="cryptic-image asset face" src='{{ "assets/images/FaceAcc" + el + ".png" }}' />
+
+          <img *ngIf="j == 0" class="cryptic-image asset back" src='{{ "assets/images/Back" + el + ".png" }}' />
+          <img *ngIf="j == 1" class="cryptic-image asset highlights" src='{{ "assets/images/Highlights" + el + ".png" }}' />
+          <img *ngIf="j == 2" class="cryptic-image asset tail" src='{{ "assets/images/Tail" + el + ".png" }}' />
+          <img *ngIf="j === 3" class="cryptic-image asset biome" src='{{ "assets/images/Biome" + el + ".png" }}' />
+          
+          <!-- <div class="dino-info-container">
+            <p *ngIf="j === 0" style="position: relative; z-index: 10; color: white;">Body: {{ bodyEnum[el] }}</p>
+            <p *ngIf="j === 2" style="position: relative; z-index: 10; color: white;">Face acc: {{ faceAccEnum[el] }}</p>
+            <p *ngIf="j === 1" style="position: relative; z-index: 10; color: white;">Highlights: {{ highlightsEnum[el] }}</p>
+            <p *ngIf="j === 2" style="position: relative; z-index: 10; color: white;">Tail: {{ tailEnum[el] }}</p>
+            <p *ngIf="j === 3" style="position: relative; z-index: 10; color: white;">Biome: {{ biomeEnum[el] }}</p>
+          </div> -->
+    
+          <div class="asset-container">
+            <p class="asset-blurb" *ngIf="last">{{ dragonBlurbs[el - 1] }}</p>
+
+            <div class="asset-heading" *ngIf="last">
+              <p class="asset-text">NO. {{ combo }}</p>
+            </div>
+          </div>
+
+          <div class="asset-heading" *ngIf="last">
+            <p class="asset-text">NO. {{ combo }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="download">
+      <img #canvasList class="canvasList">
+      <a #downloadLinks class=".downloadLinks" href="assets/images/Biome.png" download="test.png">Download Image</a>
+    </div>
+  </div>
+
+</div>
+
+<button #downloadLink id="downloadLink" (click)="downloadImage()">Generate DL</button>
