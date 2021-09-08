@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵɵsetComponentScope } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -81,4 +81,46 @@ export class NumberGeneratorService {
     //this.numberCombinations.unshift([1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8], [9, 9, 9, 9]);
     //this.numberCombinations.unshift([3, 2, 4, 3], [2, 5, 5, 5]);
   }
+
+  public calculateNftInfo(comboList: Array<number>, enumList: Array<any>, nftInfo: any): Array<any> {
+    let nftInfoArray: Array<any> = []; 
+    let enumList1 = enumList[0];
+    let enumList2 = enumList[1];
+    let enumList3 = enumList[2];
+    let enumList4 = enumList[3];
+
+    // enumList.forEach((selectedEnum: any) => {
+    //   console.log(selectedEnum);
+
+    //   Object.keys(nftInfo).map(key => {
+    //     console.log(key)
+    //     nftInfo[key] = selectedEnum[1];
+    //     console.log(nftInfo);
+    //   });
+    // });
+
+    comboList.forEach((combo: any) => {
+      combo.forEach((rarityNumber: number, index: number) => {
+        index === 0 ? nftInfo.Quest = enumList1[rarityNumber] : '';
+        index === 1 ? nftInfo.Surroundings = enumList2[rarityNumber] : '';
+        index === 2 ? nftInfo.Enemies = enumList3[rarityNumber] : '';
+        index === 3 ? nftInfo.Boss = enumList4[rarityNumber] : '';
+        //console.log(rarityNumber);
+        //console.log(nftInfo);
+        nftInfo.Combo = combo;
+
+        if(index === (combo.length - 1)){
+          nftInfoArray.push(nftInfo);
+          nftInfo = {
+
+          };
+          //console.log("Combo: ", combo, "DinoInfo: ", dinoInfoArray);
+        }
+      });
+    });
+
+    console.log(nftInfoArray);
+    return nftInfoArray;
+  }
+
 }

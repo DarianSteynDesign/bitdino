@@ -10,6 +10,7 @@ import { NumberGeneratorService } from 'src/app/services/number-generator/number
 export class QuestComponent implements OnInit {
 
   public questCombinations: Array<any> = [];
+  public questInfo: Array<any> = [];
 
   public questEnum = QuestEnum;
   public surroundingsEnum = SurroundingsEnum;
@@ -24,6 +25,17 @@ export class QuestComponent implements OnInit {
 
   private generateQuestCombinations(): void {
     this.questCombinations = this.numberGeneratorService.generateCombo();
+    this.questInfo = this.numberGeneratorService.calculateNftInfo(
+        this.questCombinations, 
+        [this.questEnum, this.surroundingsEnum, this.enemyEnum, this.bossEnum], 
+        {
+          "Combo": [],
+          "Quest" : "",
+          "Surroundings": "",
+          "Enemies": "",
+          "Boss": ""
+        }
+    );
     console.log(this.questCombinations);
   }
 
