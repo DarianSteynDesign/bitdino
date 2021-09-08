@@ -13,8 +13,15 @@ export class NumberGeneratorService {
   constructor() { }
 
   public generateCombo(){
-    let weighting = {1:0.1, 2:0.2, 3:0.3, 4:0.4, 5:0.5, 6:0.6, 7:0.8, 8:0.8, 9:0.9};
+    //quest weighting
+    let weighting = {1:0.1, 2:0.2, 3:0.2, 4:0.5, 5:0.5, 6:0.5, 7:0.8, 8:0.9, 9:0.9};
+
+    //Dino weighting
+    //let weighting = {1:0.1, 2:0.2, 3:0.3, 4:0.4, 5:0.5, 6:0.6, 7:0.8, 8:0.8, 9:0.9};
+
+    //Test weighting
     //let weighting = {1:0.1, 2:0.1, 3:0.8, 4:0.8};
+
     this.cominationArray = [];
     
     for(var index = 0; index < 500; index++){
@@ -66,14 +73,12 @@ export class NumberGeneratorService {
         valueArray.push(parseInt(element));
         
         if((index % 4) === 0 && index === 4){
-          //this.numberCombinations.push(valueArray);
+          this.numberCombinations.push(valueArray);
           valueArray = [];
         }
       });
     });
     //this.numberCombinations.unshift([1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5], [6, 6, 6, 6], [7, 7, 7, 7], [8, 8, 8, 8], [9, 9, 9, 9]);
-    this.numberCombinations.unshift([3, 2, 4, 3], [2, 5, 5, 5]);
-    //this.calculateDinoInfo(this.numberCombinations);
-    //console.log(this.numberCombinations);
+    //this.numberCombinations.unshift([3, 2, 4, 3], [2, 5, 5, 5]);
   }
 }

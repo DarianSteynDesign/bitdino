@@ -1,0 +1,56 @@
+<div class="flex-wrap">
+    <div #screen id="table" class="cryptic-container" 
+    [attr.data-index]="i"
+    [ngClass]="{'card': i >= 0 }" 
+    *ngFor="let combo of questCombinations; let i = index;">
+
+        <div class="info-container" *ngFor="let el of combo; let j = index; let last = last;">
+            <div *ngIf="j === 0" class="info-text-container">
+                <p class="info-heading">Quest Type</p>
+                <div class="rarity-container">
+                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el}"></template>
+                    <p class="info-desc">{{ questEnum[el] }}</p>
+                </div>
+            </div>
+
+            <div *ngIf="j === 1" class="info-text-container">
+                <p class="info-heading">Surroundings</p>
+                <div class="rarity-container">
+                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el}"></template>
+                    <p class="info-desc">{{ surroundingsEnum[el] }}</p>
+                </div>
+            </div>
+
+            <div *ngIf="j === 2" class="info-text-container">
+                <p class="info-heading">Enemies</p>
+                <div class="rarity-container">
+                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el}"></template>
+                    <p class="info-desc">{{ enemyEnum[el] }}</p>
+                </div>
+            </div>
+
+            <div *ngIf="j === 3" class="info-text-container">
+                <p class="info-heading">Boss</p>
+                <div class="rarity-container">
+                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el}"></template>
+                    <p class="info-desc">{{ bossEnum[el] }}</p>
+                </div>
+            </div>
+        </div>
+
+        <img class="card-bg" src="../../../../assets/quest/QuestCardBG.png">
+
+        <ng-template #rarityTemplate let-rarity="rarity">
+            <!-- <p>{{ rarity }}</p> -->
+            <img class="rarity-img" *ngIf="rarity > 6" src="../../../../assets/quest/quest_icon_common.png">
+            <img class="rarity-img" *ngIf="rarity > 3 && rarity < 7" src="../../../../assets/quest/quest_icon_rare.png">
+            <img class="rarity-img" *ngIf="rarity > 1 && rarity < 4" src="../../../../assets/quest/quest_icon_exotic.png">
+            <img class="rarity-img" *ngIf="rarity == 1" src="../../../../assets/quest/quest_icon_legendary.png">
+        </ng-template>
+
+        <!-- <div id="download">
+            <img #canvasList class="canvasList">
+            <a #downloadLinks class=".downloadLinks" href="assets/images/Biome.png" download="test.png">Download Image</a>
+        </div> -->
+    </div>
+</div>
