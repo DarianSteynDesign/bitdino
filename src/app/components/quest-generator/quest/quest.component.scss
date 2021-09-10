@@ -35,7 +35,15 @@
                 .rarity-container {
                     .rarity-img {
                         display: inline-block;
-                        width: 15px;
+                        width: 23px;
+
+                        &.common {
+                            width: 9px;
+                        }
+
+                        &.legendary {
+                            width: 15px;
+                        }
                     }
                 }
             }
