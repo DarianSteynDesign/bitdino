@@ -1,56 +1,140 @@
 <div class="flex-wrap">
     <div #screen id="table" class="cryptic-container" 
-    [attr.data-index]="i"
-    [ngClass]="{'card': i >= 0 }" 
-    *ngFor="let combo of questCombinations; let i = index;">
+        [attr.data-index]="i"
+        [ngClass]="{'card': i >= 0, 'outcome': combo.length != 4 }" 
+        *ngFor="let combo of questCombinations; let i = index;">
 
-        <div class="info-container" *ngFor="let el of combo; let j = index; let last = last;">
-            <div *ngIf="j === 0" class="info-text-container">
-                <p class="info-heading">Quest Type</p>
-                <div class="rarity-container">
-                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el}"></template>
-                    <p class="info-desc">{{ questEnum[el] }}</p>
-                </div>
-            </div>
-
-            <div *ngIf="j === 1" class="info-text-container">
-                <p class="info-heading">Surroundings</p>
-                <div class="rarity-container">
-                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el}"></template>
-                    <p class="info-desc">{{ surroundingsEnum[el] }}</p>
-                </div>
-            </div>
-
-            <div *ngIf="j === 2" class="info-text-container">
-                <p class="info-heading">Enemies</p>
-                <div class="rarity-container">
-                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el}"></template>
-                    <p class="info-desc">{{ enemyEnum[el] }}</p>
-                </div>
-            </div>
-
-            <div *ngIf="j === 3" class="info-text-container">
-                <p class="info-heading">Boss</p>
-                <div class="rarity-container">
-                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el}"></template>
-                    <p class="info-desc">{{ bossEnum[el] }}</p>
-                </div>
+        <div class="padding-container" *ngIf="combo.length === 4">
+            <div class="info-container" *ngFor="let el of combo; let j = index; let last = last;">
+                <ng-container>
+                    <div *ngIf="j === 0" class="info-text-container">
+                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el, type: 'default'}"></template>
+                        <div class="rarity-text-container">
+                            <p class="info-heading">Quest Type</p>
+                            <p class="info-desc">{{ questEnum[el] }}</p>
+                        </div>
+                    </div>
+        
+                    <div *ngIf="j === 1" class="info-text-container">
+                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el, type: 'default'}"></template>
+                        <div class="rarity-text-container">
+                            <p class="info-heading">Surroundings</p>
+                            <p class="info-desc">{{ surroundingsEnum[el] }}</p>
+                        </div>
+                    </div>
+        
+                    <div *ngIf="j === 2" class="info-text-container">
+                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el, type: 'default'}"></template>
+                        <div class="rarity-text-container">
+                            <p class="info-heading">Enemies</p>
+                            <p class="info-desc">{{ enemyEnum[el] }}</p>
+                        </div>
+                    </div>
+        
+                    <div *ngIf="j === 3" class="info-text-container">
+                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el, type: 'default'}"></template>
+                        <div class="rarity-text-container">
+                            <p class="info-heading">Boss</p>
+                            <p class="info-desc">{{ bossEnum[el] }}</p>
+                        </div>
+                    </div>
+                </ng-container>
             </div>
         </div>
+        <img *ngIf="combo.length === 4" class="card-bg" src="../../../../assets/quest/QuestCardBG.png">
 
-        <img class="card-bg" src="../../../../assets/quest/QuestCardBG.png">
+        <div *ngIf="combo[0] === true" class="outcome-container victory">
+            <div class="padding-container">
+                <p class="outcome-text">Victory</p>
 
-        <ng-template #rarityTemplate let-rarity="rarity">
+                <div class="info-text-container">
+                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: combo[1], type: 'victory'}"></template>
+                    <div class="rarity-text-container">
+                        <p class="info-heading">Enemies</p>
+                        <p class="info-desc">{{ enemyEnum[combo[1]] }}</p>
+                    </div>
+                </div>
+
+                <div class="info-text-container">
+                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: combo[2], type: 'victory'}"></template>
+                    <div class="rarity-text-container">
+                        <p class="info-heading">Boss</p>
+                        <p class="info-desc">{{ bossEnum[combo[2]] }}</p>
+                    </div>
+                </div>
+            </div>
+            <img class="card-bg" src="../../../../assets/quest/QuestCardBGVictory.png">
+        </div>
+        
+        <div *ngIf="combo[0] === false" class="outcome-container defeat">
+            <div class="padding-container">
+                <p class="outcome-text">Defeat</p>
+
+                <div class="info-text-container">
+                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: combo[1], type: 'default'}"></template>
+                    <div class="rarity-text-container">
+                        <p class="info-heading">Enemies</p>
+                        <p class="info-desc">{{ enemyEnum[combo[1]]  }}</p>
+                    </div>
+                </div>
+
+                <div class="info-text-container">
+                    <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: combo[2], type: 'default'}"></template>
+                    <div class="rarity-text-container">
+                        <p class="info-heading">Boss</p>
+                        <p class="info-desc">{{ bossEnum[combo[2]] }}</p>
+                    </div>
+                </div>
+            </div>
+            <img class="card-bg" src="../../../../assets/quest/QuestCardBGDefeat.png">
+        </div>
+        
+
+        <ng-template #rarityTemplate let-rarity="rarity" let-type="type">
             <!-- <p>{{ rarity }}</p> -->
-            <img class="rarity-img common" *ngIf="rarity > 6" src="../../../../assets/quest/quest_icon_common.png">
-            <img class="rarity-img rare" *ngIf="rarity > 3 && rarity < 7" src="../../../../assets/quest/quest_icon_rare.png">
-            <img class="rarity-img exotic" *ngIf="rarity > 1 && rarity < 4" src="../../../../assets/quest/quest_icon_exotic.png">
-            <img class="rarity-img legendary" *ngIf="rarity == 1" src="../../../../assets/quest/quest_icon_legendary.png">
+            <!-- <p>{{ type }}</p> -->
+            <ng-container *ngIf="type === 'default'">
+                <div class="rarity-img-sizer" *ngIf="rarity > 6">
+                    <img class="rarity-img common" src="../../../../assets/quest/quest_icon_common.png">
+                </div>
+
+                <div class="rarity-img-sizer" *ngIf="rarity > 3 && rarity < 7">
+                    <img class="rarity-img rare" src="../../../../assets/quest/quest_icon_rare.png">
+                </div>
+
+                <div class="rarity-img-sizer" *ngIf="rarity > 1 && rarity < 4">
+                    <img class="rarity-img exotic" src="../../../../assets/quest/quest_icon_exotic.png">
+                </div>
+
+                <div class="rarity-img-sizer" *ngIf="rarity == 1">
+                    <img class="rarity-img legendary" src="../../../../assets/quest/quest_icon_legendary.png">
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="type === 'victory'">
+                <div class="rarity-img-sizer" *ngIf="rarity > 6">
+                    <img class="rarity-img common" src="../../../../assets/quest/quest_icon_common_v.png">
+                </div>
+
+                <div class="rarity-img-sizer" *ngIf="rarity > 3 && rarity < 7">
+                    <img class="rarity-img rare" src="../../../../assets/quest/quest_icon_rare_v.png">
+                </div>
+
+                <div class="rarity-img-sizer" *ngIf="rarity > 1 && rarity < 4">
+                    <img class="rarity-img exotic" src="../../../../assets/quest/quest_icon_exotic_v.png">
+                </div>
+
+                <div class="rarity-img-sizer" *ngIf="rarity == 1" >
+                    <img class="rarity-img legendary"src="../../../../assets/quest/quest_icon_legendary_v.png">
+                </div>
+            </ng-container>
         </ng-template>
 
-        <!-- <div id="download">
+        <div id="download">
             <img #canvasList class="canvasList">
             <a #downloadLinks class=".downloadLinks" href="assets/images/Biome.png" download="test.png">Download Image</a>
-        </div> -->
+        </div>
     </div>
 </div>
+
+<button #downloadLink id="downloadLink" (click)="downloadImage()">Generate DL</button>

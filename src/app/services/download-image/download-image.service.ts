@@ -41,7 +41,7 @@ export class DownloadImageService {
   }
 
   public screenGrab(htmlElement: HTMLElement, numberCombo: string, currentElementIndex: number) {
-    html2canvas(htmlElement, {removeContainer: true, backgroundColor: null}).then((canvas:any) => {
+    html2canvas(htmlElement, {removeContainer: true, backgroundColor: "rgba(0,0,0,0)", foreignObjectRendering: false }).then((canvas:any) => {
       let ctx = canvas.getContext('2d');
 
       ctx.webkitImageSmoothingEnabled = true;

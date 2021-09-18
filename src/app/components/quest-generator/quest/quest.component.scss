@@ -1,50 +1,141 @@
+#downloadLink {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+
 .flex-wrap {
     display: flex;
     flex-wrap: wrap;
     width: 200vh;
+    margin: 50px 0;
 
     .cryptic-container {
         position: relative;
-        margin: 90px 20px;
-        padding: 20px 20px 20px 40px;
-        border-radius: 5px;
-        width: 400px;
-        height: 600px;
+        margin: 0px 20px;
+        border-radius: 1%;
+        overflow: hidden;
+        width: 395px;
+        height: 592px;
 
-        .info-container {
+        .padding-container {
+            height: 100%;
+            padding: 30px 30px;
 
             .info-text-container {
+                display: flex;
                 position: relative;
                 z-index: 2;
+                margin: 30px 10px;
 
                 p {
                     font-family: 'Lora';
                 }
 
-                .info-heading {
-                    font-size: 22px;
-                    color: #E4D8C7;
-                }
-
-                .info-desc {
-                    color: #8F8062;
+                .rarity-text-container {
                     display: inline-block;
-                    margin-left: 10px;
+                    width: 83%;
+
+                    .info-heading {
+                        font-size: 0.85rem;
+                        color: #8F8062;
+                        margin: 0;
+                    }
+    
+                    .info-desc {
+                        font-size: 22px;
+                        margin: 0.05rem 0;
+                        color: #E4D8C7;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        .rarity-img-sizer {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            width: 23px;
+            margin: auto 20px auto 0;
+
+            .rarity-img {
+                width: 23px;
+                margin: auto;
+
+                &.common {
+                    width: 9px;
+                }
+    
+                &.legendary {
+                    width: 15px;
+                }
+            }
+        }
+
+        .outcome-container {
+            position: relative;
+            z-index: 2;
+            border-radius: 1%;
+            overflow: hidden;
+            width: 395px;
+            height: 592px;
+
+            .outcome-text {
+                position: relative;
+                z-index: 2;
+                display: block;
+                font-size: 35px;
+                color: #8F8062;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .padding-container {
+                .info-text-container {
+                    display: block;
+                    margin: 50px 0;
+
+                    .rarity-img-sizer {
+                        display: block;
+                        margin: auto;
+                        width: fit-content;
+                    }
+
+                    .rarity-text-container {
+                        display: block;
+                        width: fit-content;
+                        margin: auto;
+                        text-align: center;
+                    }
+                }
+            }
+
+            &.victory {
+                .outcome-text {
+                    display: block;
+                    color: #2A3230;
                 }
 
-                .rarity-container {
-                    .rarity-img {
-                        display: inline-block;
-                        width: 23px;
-
-                        &.common {
-                            width: 9px;
-                        }
-
-                        &.legendary {
-                            width: 15px;
+                .padding-container {
+                    .info-text-container {
+                        .rarity-text-container {
+                            .info-heading {
+                                color: #545454;
+                                font-weight: 500;
+                            }
+            
+                            .info-desc {
+                                color: #2A3230;
+                            }
                         }
                     }
+                }
+            }
+
+            &.defeat {
+                .outcome-text {
+                    display: block;
                 }
             }
         }

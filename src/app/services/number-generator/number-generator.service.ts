@@ -9,10 +9,12 @@ export class NumberGeneratorService {
   public resultAmount = 0;
   public cominationArray: Array<string> =[];
   public numberCombinations: Array<any> = [];
+  public outcomeArray: Array<boolean> = [];
+  private isQuest: boolean = false;
 
   constructor() { }
 
-  public generateCombo(){
+  public generateCombo(isQuest?: boolean){
     //quest weighting
     let weighting = {1:0.1, 2:0.2, 3:0.2, 4:0.5, 5:0.5, 6:0.5, 7:0.8, 8:0.9, 9:0.9};
 
@@ -21,6 +23,9 @@ export class NumberGeneratorService {
 
     //Test weighting
     //let weighting = {1:0.1, 2:0.1, 3:0.8, 4:0.8};
+    if(isQuest){
+      this.isQuest = isQuest;
+    }
 
     this.cominationArray = [];
     
@@ -45,7 +50,7 @@ export class NumberGeneratorService {
     } else {
       this.cominationArray.push(this.combinedResult);
       this.resultAmount++;
-      if(this.resultAmount == 50){
+      if(this.resultAmount == 2){
         this.splitCombination(this.cominationArray);
       }
       this.combinedResult = '';
@@ -68,12 +73,21 @@ export class NumberGeneratorService {
   public valueToNumber(arrayOfValues: any) {
     arrayOfValues.forEach((value: any) => {
       let valueArray: Array<any> = [];
+      let outcome: boolean = false;
+
       value.forEach((element: any, index: number) => {
         index++;
         valueArray.push(parseInt(element));
         
-        if((index % 4) === 0 && index === 4){
-          this.numberCombinations.push(valueArray);
+        if((index % 4) === 0 && index === 4) {
+          if(this.isQuest) {
+            outcome = this.generateOutcome(valueArray[2], valueArray[3]);
+            this.numberCombinations.push(valueArray);
+            this.numberCombinations.push([outcome, valueArray[2], valueArray[3]]);
+          } else {
+            this.numberCombinations.push(valueArray);
+          }
+
           valueArray = [];
         }
       });
@@ -118,9 +132,26 @@ export class NumberGeneratorService {
         }
       });
     });
-
+    
     console.log(nftInfoArray);
     return nftInfoArray;
+  }
+
+  public generateOutcome(enemyValue: number, bossValue: number): boolean {
+    let outcome: boolean = false;
+    let newPercentage: number = 0;
+    let enemyPercentage: string = '0.';
+    let bossPercentage: string = '0.';
+
+    enemyPercentage += enemyValue.toString();
+    bossPercentage += bossValue.toString();
+
+    newPercentage = (parseFloat(enemyPercentage) + parseFloat(bossPercentage)) / 2;
+    outcome = Math.random() < newPercentage;
+
+    console.log(enemyPercentage, bossPercentage, newPercentage, outcome);
+    //console.log('Outcome is - ', outcome);
+    return outcome;
   }
 
 }
