@@ -48,7 +48,7 @@ export class DinoComponent implements OnInit {
 
   public generateCombo(){
     this.numberCombinations = this.numberGeneratorService.generateCombo();
-    this.calculateDinoInfo(this.numberGeneratorService.generateCombo());
+    this.calculateDinoInfo(this.numberCombinations);
   }
 
   private calculateDinoInfo(comboList: Array<number>): void {
@@ -84,6 +84,8 @@ export class DinoComponent implements OnInit {
         }
       })
     })
+
+    console.log(dinoInfoArray);
   }
 
 }

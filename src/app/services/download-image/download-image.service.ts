@@ -37,11 +37,24 @@ export class DownloadImageService {
   }
 
   public getNumberCombo(index: number): string {
+    if(this.numberGeneratorService.numberCombinations[index][0] === true){
+      this.numberGeneratorService.numberCombinations[index][0] = 'victory';
+    } else if (this.numberGeneratorService.numberCombinations[index][0] === false) {
+      this.numberGeneratorService.numberCombinations[index][0] = 'defeat';
+    }
     return this.numberGeneratorService.numberCombinations[index].join("-");
   }
 
   public screenGrab(htmlElement: HTMLElement, numberCombo: string, currentElementIndex: number) {
-    html2canvas(htmlElement, {removeContainer: true}).then((canvas:any) => {
+    let options = {
+      removeContainer: true, 
+      backgroundColor: "rgba(0,0,0,0)", 
+      foreignObjectRendering: false,
+      scale: 2,
+      dpi: 144
+    }
+
+    html2canvas(htmlElement, options).then((canvas:any) => {
       let ctx = canvas.getContext('2d');
 
       ctx.webkitImageSmoothingEnabled = true;
@@ -49,7 +62,8 @@ export class DownloadImageService {
       ctx.imageSmoothingEnabled = true;
 
       this.updateCanvas(currentElementIndex, canvas.toDataURL());
-      this.updateDownloadLinks(currentElementIndex, canvas.toDataURL('image/png'), 'dino' + numberCombo + '.png');
+      console.log(numberCombo);
+      this.updateDownloadLinks(currentElementIndex, canvas.toDataURL('image/png'), 'quest-' + numberCombo + '.png');
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
     });
