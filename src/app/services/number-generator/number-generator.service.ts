@@ -50,7 +50,7 @@ export class NumberGeneratorService {
     } else {
       this.cominationArray.push(this.combinedResult);
       this.resultAmount++;
-      if(this.resultAmount == 2){
+      if(this.resultAmount == 7){
         this.splitCombination(this.cominationArray);
       }
       this.combinedResult = '';
@@ -82,6 +82,9 @@ export class NumberGeneratorService {
         if((index % 4) === 0 && index === 4) {
           if(this.isQuest) {
             outcome = this.generateOutcome(valueArray[2], valueArray[3]);
+            if(valueArray[3] === 1 && outcome === true) {
+              console.log('WE FOUND A LEGENDARY BOSS VICTORY!!!!!!!');
+            }
             this.numberCombinations.push(valueArray);
             this.numberCombinations.push([outcome, valueArray[2], valueArray[3]]);
           } else {
@@ -119,8 +122,7 @@ export class NumberGeneratorService {
         index === 1 ? nftInfo.Surroundings = enumList2[rarityNumber] : '';
         index === 2 ? nftInfo.Enemies = enumList3[rarityNumber] : '';
         index === 3 ? nftInfo.Boss = enumList4[rarityNumber] : '';
-        //console.log(rarityNumber);
-        //console.log(nftInfo);
+
         nftInfo.Combo = combo;
 
         if(index === (combo.length - 1)){
@@ -128,7 +130,6 @@ export class NumberGeneratorService {
           nftInfo = {
 
           };
-          //console.log("Combo: ", combo, "DinoInfo: ", dinoInfoArray);
         }
       });
     });
@@ -149,8 +150,6 @@ export class NumberGeneratorService {
     newPercentage = (parseFloat(enemyPercentage) + parseFloat(bossPercentage)) / 2;
     outcome = Math.random() < newPercentage;
 
-    console.log(enemyPercentage, bossPercentage, newPercentage, outcome);
-    //console.log('Outcome is - ', outcome);
     return outcome;
   }
 
