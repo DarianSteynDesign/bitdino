@@ -5,43 +5,61 @@
         *ngFor="let combo of questCombinations; let i = index;">
 
         <div class="padding-container" *ngIf="combo.length === 4">
-            <div class="info-container" *ngFor="let el of combo; let j = index; let last = last;">
+            <div class="info-container" *ngFor="let rarity of combo; let j = index; let last = last;">
                 <ng-container>
                     <div *ngIf="j === 0" class="info-text-container">
-                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el, type: 'default'}"></template>
+                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: rarity, type: 'default'}"></template>
                         <div class="rarity-text-container">
                             <p class="info-heading">Quest Type</p>
-                            <p class="info-desc">{{ questEnum[el] }}</p>
+                            <p class="info-desc">{{ questEnum[rarity] }}</p>
                         </div>
                     </div>
         
                     <div *ngIf="j === 1" class="info-text-container">
-                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el, type: 'default'}"></template>
+                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: rarity, type: 'default'}"></template>
                         <div class="rarity-text-container">
                             <p class="info-heading">Surroundings</p>
-                            <p class="info-desc">{{ surroundingsEnum[el] }}</p>
+                            <p class="info-desc">{{ surroundingsEnum[rarity] }}</p>
                         </div>
                     </div>
         
                     <div *ngIf="j === 2" class="info-text-container">
-                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el, type: 'default'}"></template>
+                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: rarity, type: 'default'}"></template>
                         <div class="rarity-text-container">
                             <p class="info-heading">Enemies</p>
-                            <p class="info-desc">{{ enemyEnum[el] }}</p>
+                            <p class="info-desc">{{ enemyEnum[rarity] }}</p>
                         </div>
                     </div>
         
                     <div *ngIf="j === 3" class="info-text-container">
-                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: el, type: 'default'}"></template>
+                        <template [ngTemplateOutlet]="rarityTemplate" [ngTemplateOutletContext]="{rarity: rarity, type: 'default'}"></template>
                         <div class="rarity-text-container">
                             <p class="info-heading">Boss</p>
-                            <p class="info-desc">{{ bossEnum[el] }}</p>
+                            <p class="info-desc">{{ bossEnum[rarity] }}</p>
                         </div>
                     </div>
                 </ng-container>
+
+                <div class="background-container" *ngIf="combo.length === 4">
+                    <img *ngIf="j === 3 && rarity > 6" class="card-bg" src="../../../../assets/quest/QuestCardBG4.png">
+                    <img *ngIf="j === 3 && rarity > 3 && rarity < 7" class="card-bg" src="../../../../assets/quest/QuestCardBG3.png">
+                    <img *ngIf="j === 3 && rarity > 1 && rarity < 4" class="card-bg" src="../../../../assets/quest/QuestCardBG2.png">
+                    <img *ngIf="j === 3 && rarity === 1" class="card-bg" src="../../../../assets/quest/QuestCardBG1.png">
+                </div>
+
+                <div class="character-container" *ngIf="combo.length === 4">
+                    <img *ngIf="j === 3 && rarity === 1" class="card-bg" src="../../../../assets/quest/AncientGoldDragon.png">
+                    <img *ngIf="j === 3 && rarity === 2" class="card-bg" src="../../../../assets/quest/Kraken.png">
+                    <img *ngIf="j === 3 && rarity === 3" class="card-bg" src="../../../../assets/quest/ElderBrain.png">
+                    <img *ngIf="j === 3 && rarity === 4" class="card-bg" src="../../../../assets/quest/Illithilich.png">
+                    <img *ngIf="j === 3 && rarity === 5" class="card-bg" src="../../../../assets/quest/Lich.png">
+                    <img *ngIf="j === 3 && rarity === 6" class="card-bg" src="../../../../assets/quest/Troll.png">
+                    <img *ngIf="j === 3 && rarity === 7" class="card-bg" src="../../../../assets/quest/BarbedDevil.png">
+                    <img *ngIf="j === 3 && rarity === 8" class="card-bg" src="../../../../assets/quest/Werebear.png">
+                    <img *ngIf="j === 3 && rarity === 9" class="card-bg" src="../../../../assets/quest/GelatinousCube.png">
+                </div>
             </div>
         </div>
-        <img *ngIf="combo.length === 4" class="card-bg" src="../../../../assets/quest/QuestCardBG.png">
 
         <div *ngIf="combo[0] === true" class="outcome-container victory">
             <div class="padding-container">

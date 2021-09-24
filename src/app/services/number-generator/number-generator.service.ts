@@ -1,4 +1,5 @@
-import { Injectable, ɵɵsetComponentScope } from '@angular/core';
+import { Injectable, OnInit, ɵɵsetComponentScope } from '@angular/core';
+import batchData from '../../batch-files/questBatch1.json';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class NumberGeneratorService {
   public outcomeArray: Array<boolean> = [];
   private isQuest: boolean = false;
 
-  constructor() { }
+  constructor() { 
+    this.batchReader();
+  }
 
   public generateCombo(isQuest?: boolean){
     //quest weighting
@@ -36,6 +39,22 @@ export class NumberGeneratorService {
     return this.numberCombinations;
   }
 
+  private batchReader(): void {
+    batchData.forEach((quest: any, index: number) => {
+      if(quest.Combo[0] === 'victory') {
+        quest.Combo[0] = true
+      } else if(quest.Combo[0] === 'defeat') {
+        quest.Combo[0] = false
+      }
+      //Undo - For testing
+      // if(index <= 1){
+      //   this.numberCombinations.push(quest.Combo);
+      // }
+      this.numberCombinations.push(quest.Combo);
+      console.log(quest.Combo);
+    });
+  }
+
   public calculateWeight(spec: any) {
     var i, j, table=[];
     
@@ -50,7 +69,7 @@ export class NumberGeneratorService {
     } else {
       this.cominationArray.push(this.combinedResult);
       this.resultAmount++;
-      if(this.resultAmount == 7){
+      if(this.resultAmount == 100){
         this.splitCombination(this.cominationArray);
       }
       this.combinedResult = '';
@@ -85,8 +104,8 @@ export class NumberGeneratorService {
             if(valueArray[3] === 1 && outcome === true) {
               console.log('WE FOUND A LEGENDARY BOSS VICTORY!!!!!!!');
             }
-            this.numberCombinations.push(valueArray);
-            this.numberCombinations.push([outcome, valueArray[2], valueArray[3]]);
+            //this.numberCombinations.push(valueArray);
+            //this.numberCombinations.push([outcome, valueArray[2], valueArray[3]]);
           } else {
             this.numberCombinations.push(valueArray);
           }
@@ -134,7 +153,7 @@ export class NumberGeneratorService {
       });
     });
     
-    console.log(nftInfoArray);
+    //console.log(nftInfoArray);
     return nftInfoArray;
   }
 
