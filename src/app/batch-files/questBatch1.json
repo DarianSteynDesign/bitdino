@@ -1,0 +1,905 @@
+[
+    {
+        "Combo": [
+            8,
+            8,
+            9,
+            1
+        ],
+        "Quest": "Fetch",
+        "Surroundings": "Swamp",
+        "Enemies": "Animal",
+        "Boss": "Ancient Gold Dragon"
+    },
+    {
+        "Combo": [
+            "victory",
+            9,
+            1
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Dragon"
+    },
+    {
+        "Quest": "Fetch",
+        "Combo": [
+            8,
+            6,
+            3,
+            9
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Undead",
+        "Boss": "Gelatinous Cube"
+    },
+    {
+        "Combo": [
+            "defeat",
+            3,
+            9
+        ],
+        "Surroundings": "City",
+        "Enemies": "Animal"
+    },
+    {
+        "Quest": "Delivery",
+        "Combo": [
+            5,
+            9,
+            7,
+            8
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Vermin",
+        "Boss": "Werebear"
+    },
+    {
+        "Combo": [
+            "defeat",
+            7,
+            8
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Human"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            7,
+            7,
+            7
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Vermin",
+        "Boss": "Barbed Devil"
+    },
+    {
+        "Combo": [
+            "victory",
+            7,
+            7
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Vermin"
+    },
+    {
+        "Quest": "Fetch",
+        "Combo": [
+            8,
+            8,
+            7,
+            9
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Vermin",
+        "Boss": "Gelatinous Cube"
+    },
+    {
+        "Combo": [
+            "victory",
+            7,
+            9
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Animal"
+    },
+    {
+        "Quest": "Delivery",
+        "Combo": [
+            5,
+            8,
+            3,
+            5
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Undead",
+        "Boss": "Lich"
+    },
+    {
+        "Combo": [
+            "defeat",
+            3,
+            5
+        ],
+        "Surroundings": "City",
+        "Enemies": "Dark Elves"
+    },
+    {
+        "Quest": "Assasination",
+        "Combo": [
+            3,
+            8,
+            9,
+            4
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Animal",
+        "Boss": "Illithilich"
+    },
+    {
+        "Combo": [
+            "victory",
+            9,
+            4
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Giant"
+    },
+    {
+        "Quest": "Fetch",
+        "Combo": [
+            8,
+            7,
+            9,
+            9
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Animal",
+        "Boss": "Gelatinous Cube"
+    },
+    {
+        "Combo": [
+            "victory",
+            9,
+            9
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Animal"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            9,
+            6,
+            4
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Ork",
+        "Boss": "Illithilich"
+    },
+    {
+        "Combo": [
+            "victory",
+            6,
+            4
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Giant"
+    },
+    {
+        "Quest": "Thievery",
+        "Combo": [
+            6,
+            4,
+            7,
+            8
+        ],
+        "Surroundings": "Graveyard",
+        "Enemies": "Vermin",
+        "Boss": "Werebear"
+    },
+    {
+        "Combo": [
+            "victory",
+            7,
+            8
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Human"
+    },
+    {
+        "Quest": "Fetch",
+        "Combo": [
+            8,
+            9,
+            8,
+            4
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Human",
+        "Boss": "Illithilich"
+    },
+    {
+        "Combo": [
+            "defeat",
+            8,
+            4
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Giant"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            5,
+            1,
+            7
+        ],
+        "Surroundings": "Caves",
+        "Enemies": "Dragon",
+        "Boss": "Barbed Devil"
+    },
+    {
+        "Combo": [
+            "victory",
+            1,
+            7
+        ],
+        "Surroundings": "Dungeon",
+        "Enemies": "Vermin"
+    },
+    {
+        "Quest": "Escort",
+        "Combo": [
+            4,
+            8,
+            8,
+            7
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Human",
+        "Boss": "Barbed Devil"
+    },
+    {
+        "Combo": [
+            "defeat",
+            8,
+            7
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Vermin"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            7,
+            6,
+            8
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Ork",
+        "Boss": "Werebear"
+    },
+    {
+        "Combo": [
+            "victory",
+            6,
+            8
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Human"
+    },
+    {
+        "Quest": "Escort",
+        "Combo": [
+            4,
+            5,
+            7,
+            7
+        ],
+        "Surroundings": "Caves",
+        "Enemies": "Vermin",
+        "Boss": "Barbed Devil"
+    },
+    {
+        "Combo": [
+            "victory",
+            7,
+            7
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Vermin"
+    },
+    {
+        "Quest": "Escort",
+        "Combo": [
+            4,
+            6,
+            5,
+            9
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Dark Elves",
+        "Boss": "Gelatinous Cube"
+    },
+    {
+        "Combo": [
+            "victory",
+            5,
+            9
+        ],
+        "Surroundings": "Caves",
+        "Enemies": "Animal"
+    },
+    {
+        "Quest": "Thievery",
+        "Combo": [
+            6,
+            8,
+            5,
+            7
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Dark Elves",
+        "Boss": "Barbed Devil"
+    },
+    {
+        "Combo": [
+            "defeat",
+            5,
+            7
+        ],
+        "Surroundings": "Caves",
+        "Enemies": "Vermin"
+    },
+    {
+        "Quest": "Delivery",
+        "Combo": [
+            5,
+            8,
+            9,
+            7
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Animal",
+        "Boss": "Barbed Devil"
+    },
+    {
+        "Combo": [
+            "victory",
+            9,
+            7
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Vermin"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            8,
+            6,
+            8
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Ork",
+        "Boss": "Werebear"
+    },
+    {
+        "Combo": [
+            "victory",
+            6,
+            8
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Human"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            3,
+            7,
+            8
+        ],
+        "Surroundings": "City",
+        "Enemies": "Vermin",
+        "Boss": "Werebear"
+    },
+    {
+        "Combo": [
+            "victory",
+            7,
+            8
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Human"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            7,
+            6,
+            5
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Ork",
+        "Boss": "Lich"
+    },
+    {
+        "Combo": [
+            "victory",
+            6,
+            5
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Dark Elves"
+    },
+    {
+        "Quest": "Defense",
+        "Combo": [
+            7,
+            8,
+            6,
+            9
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Ork",
+        "Boss": "Gelatinous Cube"
+    },
+    {
+        "Combo": [
+            "victory",
+            6,
+            9
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Animal"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            9,
+            9,
+            8
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Animal",
+        "Boss": "Werebear"
+    },
+    {
+        "Combo": [
+            "victory",
+            9,
+            8
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Human"
+    },
+    {
+        "Quest": "Escort",
+        "Combo": [
+            4,
+            8,
+            7,
+            2
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Vermin",
+        "Boss": "Kraken"
+    },
+    {
+        "Combo": [
+            "victory",
+            7,
+            2
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Fiend"
+    },
+    {
+        "Quest": "Escort",
+        "Combo": [
+            4,
+            8,
+            4,
+            4
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Giant",
+        "Boss": "Illithilich"
+    },
+    {
+        "Combo": [
+            "victory",
+            4,
+            4
+        ],
+        "Surroundings": "Graveyard",
+        "Enemies": "Giant"
+    },
+    {
+        "Combo": [
+            4,
+            9,
+            3,
+            3
+        ],
+        "Quest": "Escort",
+        "Surroundings": "Woods",
+        "Enemies": "Undead",
+        "Boss": "Elder Brain"
+    },
+    {
+        "Combo": [
+            "victory",
+            3,
+            3
+        ],
+        "Surroundings": "City",
+        "Enemies": "Undead"
+    },
+    {
+        "Quest": "Lore",
+        "Combo": [
+            2,
+            9,
+            5,
+            6
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Dark Elves",
+        "Boss": "Troll"
+    },
+    {
+        "Combo": [
+            "victory",
+            5,
+            6
+        ],
+        "Surroundings": "Caves",
+        "Enemies": "Ork"
+    },
+    {
+        "Quest": "Escort",
+        "Combo": [
+            4,
+            5,
+            7,
+            7
+        ],
+        "Surroundings": "Caves",
+        "Enemies": "Vermin",
+        "Boss": "Barbed Devil"
+    },
+    {
+        "Combo": [
+            "defeat",
+            7,
+            7
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Vermin"
+    },
+    {
+        "Quest": "Defense",
+        "Combo": [
+            7,
+            6,
+            7,
+            4
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Vermin",
+        "Boss": "Illithilich"
+    },
+    {
+        "Combo": [
+            "victory",
+            7,
+            4
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Giant"
+    },
+    {
+        "Combo": [
+            7,
+            9,
+            7,
+            6
+        ],
+        "Quest": "Defense",
+        "Surroundings": "Woods",
+        "Enemies": "Vermin",
+        "Boss": "Troll"
+    },
+    {
+        "Combo": [
+            "victory",
+            7,
+            6
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Ork"
+    },
+    {
+        "Quest": "Defense",
+        "Combo": [
+            7,
+            8,
+            8,
+            5
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Human",
+        "Boss": "Lich"
+    },
+    {
+        "Combo": [
+            "defeat",
+            8,
+            5
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Dark Elves"
+    },
+    {
+        "Quest": "Delivery",
+        "Combo": [
+            5,
+            8,
+            4,
+            9
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Giant",
+        "Boss": "Gelatinous Cube"
+    },
+    {
+        "Combo": [
+            "victory",
+            4,
+            9
+        ],
+        "Surroundings": "Graveyard",
+        "Enemies": "Animal"
+    },
+    {
+        "Quest": "Thievery",
+        "Combo": [
+            6,
+            5,
+            8,
+            1
+        ],
+        "Surroundings": "Caves",
+        "Enemies": "Human",
+        "Boss": "Ancient Gold Dragon"
+    },
+    {
+        "Combo": [
+            "defeat",
+            8,
+            1
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Dragon"
+    },
+    {
+        "Quest": "Mystery",
+        "Combo": [
+            1,
+            7,
+            9,
+            7
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Animal",
+        "Boss": "Barbed Devil"
+    },
+    {
+        "Combo": [
+            "victory",
+            9,
+            7
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Vermin"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            9,
+            2,
+            8
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Fiend",
+        "Boss": "Werebear"
+    },
+    {
+        "Combo": [
+            "defeat",
+            2,
+            8
+        ],
+        "Surroundings": "Ruins",
+        "Enemies": "Human"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            4,
+            8,
+            8
+        ],
+        "Surroundings": "Graveyard",
+        "Enemies": "Human",
+        "Boss": "Werebear"
+    },
+    {
+        "Combo": [
+            "defeat",
+            8,
+            8
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Human"
+    },
+    {
+        "Combo": [
+            6,
+            5,
+            6,
+            3
+        ],
+        "Quest": "Thievery",
+        "Surroundings": "Caves",
+        "Enemies": "Ork",
+        "Boss": "Elder Brain"
+    },
+    {
+        "Combo": [
+            "defeat",
+            6,
+            3
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Undead"
+    },
+    {
+        "Quest": "Fetch",
+        "Combo": [
+            8,
+            2,
+            7,
+            7
+        ],
+        "Surroundings": "Ruins",
+        "Enemies": "Vermin",
+        "Boss": "Barbed Devil"
+    },
+    {
+        "Combo": [
+            "victory",
+            7,
+            7
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Vermin"
+    },
+    {
+        "Quest": "Gather",
+        "Combo": [
+            9,
+            5,
+            5,
+            6
+        ],
+        "Surroundings": "Caves",
+        "Enemies": "Dark Elves",
+        "Boss": "Troll"
+    },
+    {
+        "Combo": [
+            "defeat",
+            5,
+            6
+        ],
+        "Surroundings": "Caves",
+        "Enemies": "Ork"
+    },
+    {
+        "Quest": "Escort",
+        "Combo": [
+            4,
+            6,
+            8,
+            1
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Human",
+        "Boss": "Ancient Gold Dragon"
+    },
+    {
+        "Combo": [
+            "victory",
+            8,
+            1
+        ],
+        "Surroundings": "Swamp",
+        "Enemies": "Dragon"
+    },
+    {
+        "Quest": "Escort",
+        "Combo": [
+            4,
+            9,
+            7,
+            4
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Vermin",
+        "Boss": "Illithilich"
+    },
+    {
+        "Combo": [
+            "defeat",
+            7,
+            4
+        ],
+        "Surroundings": "Coast",
+        "Enemies": "Giant"
+    },
+    {
+        "Quest": "Defense",
+        "Combo": [
+            7,
+            9,
+            2,
+            4
+        ],
+        "Surroundings": "Woods",
+        "Enemies": "Fiend",
+        "Boss": "Illithilich"
+    },
+    {
+        "Combo": [
+            "defeat",
+            2,
+            4
+        ],
+        "Surroundings": "Ruins",
+        "Enemies": "Giant"
+    },
+    {
+        "Quest": "Escort",
+        "Combo": [
+            4,
+            6,
+            5,
+            8
+        ],
+        "Surroundings": "Desert",
+        "Enemies": "Dark Elves",
+        "Boss": "Werebear"
+    },
+    {
+        "Combo": [
+            "defeat",
+            5,
+            8
+        ],
+        "Surroundings": "Caves",
+        "Enemies": "Human"
+    }
+]

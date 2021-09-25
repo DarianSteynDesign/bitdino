@@ -149,6 +149,10 @@
             right: 0;
             margin: auto;
             width: 100%;
+
+            &.character {
+                mix-blend-mode: overlay;
+            }
         }
     }
 }
