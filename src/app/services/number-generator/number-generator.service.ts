@@ -14,7 +14,7 @@ export class NumberGeneratorService {
   private isQuest: boolean = false;
 
   constructor() { 
-    this.batchReader();
+    //this.batchReader();
   }
 
   public generateCombo(isQuest?: boolean){
@@ -104,8 +104,8 @@ export class NumberGeneratorService {
             if(valueArray[3] === 1 && outcome === true) {
               console.log('WE FOUND A LEGENDARY BOSS VICTORY!!!!!!!');
             }
-            //this.numberCombinations.push(valueArray);
-            //this.numberCombinations.push([outcome, valueArray[2], valueArray[3]]);
+            this.numberCombinations.push(valueArray);
+            this.numberCombinations.push([outcome, valueArray[2], valueArray[3]]);
           } else {
             this.numberCombinations.push(valueArray);
           }
@@ -125,16 +125,6 @@ export class NumberGeneratorService {
     let enumList3 = enumList[2];
     let enumList4 = enumList[3];
 
-    // enumList.forEach((selectedEnum: any) => {
-    //   console.log(selectedEnum);
-
-    //   Object.keys(nftInfo).map(key => {
-    //     console.log(key)
-    //     nftInfo[key] = selectedEnum[1];
-    //     console.log(nftInfo);
-    //   });
-    // });
-
     comboList.forEach((combo: any) => {
       combo.forEach((rarityNumber: number, index: number) => {
         index === 0 ? nftInfo.Quest = enumList1[rarityNumber] : '';
@@ -153,7 +143,6 @@ export class NumberGeneratorService {
       });
     });
     
-    //console.log(nftInfoArray);
     return nftInfoArray;
   }
 
